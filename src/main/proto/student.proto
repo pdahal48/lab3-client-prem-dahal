@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package edu.franklin;
+
+option java_multiple_files = true;
+option java_package = "edu.franklin";
+
+message Student {
+  string id = 1;
+  string name = 2;
+  string phone = 3;
+  string age = 4;
+  string zip = 5;
+}
+
+message StudentID {
+  string value = 1;
+}
+
+service StudentService {
+  rpc addStudent(Student) returns (StudentID);
+  rpc getStudent(StudentID) returns (Student);
+}
